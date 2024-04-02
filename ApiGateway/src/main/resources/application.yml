@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+#        - id: USER-SERVICES
+#          uri: lb://USER-SERVICES
+#          predicates:
+#            - Path=/users/**
+#
+#        - id: HOTEL-SERVICES
+#          uri: lb://HOTEL-SERVICES
+#          predicates:
+#            - Path=/hotel/**,/staffs/**
+#
+#        - id: RATING-SERVICES
+#          uri: lb://RATING-SERVICES
+#          predicates:
+#            - Path=/rating/**
+
+        - id: STORE-SERVICES
+          uri: lb://STORE-SERVICES
+          predicates:
+            - Path=/store/**,/dish/**
+
+        - id: AUTHENTICATION-SERVICES
+          uri: lb://AUTHENTICATION-SERVICES
+          predicates:
+            - Path=/otp/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
